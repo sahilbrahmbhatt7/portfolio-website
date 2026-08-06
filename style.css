@@ -109,6 +109,7 @@ button {
 
 section {
     padding: clamp(70px, 10vw, 120px) 0;
+    background: var(--bg-color);
 }
 
 ::selection {
@@ -831,12 +832,6 @@ p {
     height: 100%;
     object-fit: cover;
 }
-
-/*=========================================
-        FLOATING TAG
-=========================================*/
-
-
 
 /*=========================================
         EXPERIENCE CARD
@@ -2477,14 +2472,6 @@ footer {
         padding: 16px;
     }
 
-    .project-links {
-        flex-direction: column;
-    }
-
-    .project-links a {
-        justify-content: center;
-    }
-
     .timeline-content {
         padding: 16px;
     }
@@ -2612,13 +2599,6 @@ footer {
     .photo-card {
         width: clamp(160px, 30vw, 220px);
         height: clamp(200px, 40vw, 280px);
-    }
-    
-    .photo-card::before {
-        font-size: 0.4rem;
-        padding: 4px 30px;
-        left: -30px;
-        top: 10px;
     }
     
     .hero-right .experience-tag {
@@ -3498,7 +3478,6 @@ textarea:focus-visible {
         PERFORMANCE OPTIMIZATIONS
 =========================================*/
 
-/* GPU acceleration for animated elements */
 .photo-card,
 .service-card,
 .project-card,
@@ -3515,7 +3494,6 @@ textarea:focus-visible {
     -webkit-backface-visibility: hidden;
 }
 
-/* Optimize transitions */
 .primary-btn,
 .secondary-btn,
 .resume-btn,
@@ -3533,7 +3511,6 @@ textarea:focus-visible {
     -webkit-backface-visibility: hidden;
 }
 
-/* Optimize images */
 .project-card img,
 .project-image img,
 .about-image img,
@@ -3543,14 +3520,12 @@ textarea:focus-visible {
     -webkit-backface-visibility: hidden;
 }
 
-/* Reduce repaints */
 .nav-menu a::after,
 .footer-links a::after,
 .scroll-progress {
     will-change: width;
 }
 
-/* Optimize backdrop-filter */
 .glass,
 #header.sticky,
 .hero-right .experience-tag {
@@ -3558,7 +3533,6 @@ textarea:focus-visible {
     -webkit-backface-visibility: hidden;
 }
 
-/* Optimize gradients */
 .hero::before,
 .hero::after,
 .contact::before,
@@ -3572,19 +3546,16 @@ textarea:focus-visible {
         BROWSER COMPATIBILITY
 =========================================*/
 
-/* Firefox scrollbar */
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--primary, #8b5cf6) #0b0b0b;
 }
 
-/* Edge & IE fallbacks */
 .glass {
     background: rgba(255, 255, 255, 0.04);
     background: var(--glass-bg, rgba(255, 255, 255, 0.04));
 }
 
-/* Safari backdrop-filter fix */
 @supports (-webkit-backdrop-filter: blur(18px)) {
     .glass,
     #header.sticky,
@@ -3593,7 +3564,6 @@ textarea:focus-visible {
     }
 }
 
-/* Firefox backdrop-filter fallback */
 @supports not (backdrop-filter: blur(18px)) {
     .glass {
         background: rgba(255, 255, 255, 0.06);
@@ -3608,7 +3578,6 @@ textarea:focus-visible {
     }
 }
 
-/* Object-fit fallback for older browsers */
 .photo-card img,
 .about-image img,
 .project-card img {
@@ -3616,7 +3585,6 @@ textarea:focus-visible {
     font-family: 'object-fit: cover;';
 }
 
-/* Flexbox gap fallback for older browsers */
 @supports not (gap: 18px) {
     .nav-menu {
         margin-right: -38px;
@@ -3644,7 +3612,6 @@ textarea:focus-visible {
     }
 }
 
-/* Grid gap fallback */
 @supports not (gap: 30px) {
     .projects-grid {
         margin-right: -30px;
@@ -3659,7 +3626,6 @@ textarea:focus-visible {
     }
 }
 
-/* Clamp fallback */
 @supports not (font-size: clamp(3rem, 7vw, 6.5rem)) {
     h1 {
         font-size: 4rem;
@@ -3670,7 +3636,6 @@ textarea:focus-visible {
     }
 }
 
-/* Min() fallback */
 @supports not (width: min(92%, 1300px)) {
     .container {
         width: 92%;
@@ -3805,51 +3770,23 @@ textarea:focus-visible {
 }
 
 /*=========================================
-        ACCESSIBILITY - REDUCED MOTION
+        SELECTION STYLES
 =========================================*/
 
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    
-    .loader-logo span {
-        animation: none !important;
-    }
-    
-    .float {
-        animation: none !important;
-    }
-    
-    .fade-in,
-    .slide-up,
-    .scale-in {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    
-    .scroll-down span {
-        animation: none !important;
-    }
-    
-    .ripple {
-        animation: none !important;
-    }
-    
-    #scrollTop.show {
-        transition: none !important;
-    }
+::selection {
+    background: var(--primary, #8b5cf6);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: var(--primary, #8b5cf6);
+    color: #ffffff;
 }
 
 /*=========================================
         CROSS-BROWSER FIXES
 =========================================*/
 
-/* IE11 specific fixes */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .hero-container,
     .about-wrapper,
@@ -3898,7 +3835,6 @@ textarea:focus-visible {
     }
 }
 
-/* Safari specific fixes */
 @supports (-webkit-touch-callout: none) {
     .glass {
         -webkit-backdrop-filter: blur(18px);
@@ -3916,300 +3852,16 @@ textarea:focus-visible {
     }
 }
 
-/*=========================================
-        SELECTION STYLES
-=========================================*/
-
-::selection {
-    background: var(--primary, #8b5cf6);
-    color: #ffffff;
-}
-
-::-moz-selection {
-    background: var(--primary, #8b5cf6);
-    color: #ffffff;
-}
-
-/*=========================================
-        SCROLLBAR STYLES - WEBKIT
-=========================================*/
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0b0b0b;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary, #8b5cf6);
-    border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-dark, #6d28d9);
-}
-
-/*=========================================
-        SCROLLBAR STYLES - FIREFOX
-=========================================*/
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary, #8b5cf6) #0b0b0b;
-}
-
-/*=========================================
-        PRINT STYLES - ENHANCED
-=========================================*/
-
-@media print {
-    .loader,
-    .cursor,
-    .cursor-blur,
-    .scroll-progress,
-    #scrollTop,
-    .scroll-top,
-    .mouse-glow,
-    .trail-dot,
-    .menu-btn,
-    #theme-toggle,
-    .resume-btn,
-    .hero-social,
-    .social-links,
-    .project-links,
-    .scroll-down,
-    .tech-strip {
-        display: none !important;
-    }
-    
-    body {
-        background: #ffffff !important;
-        color: #000000 !important;
-        font-size: 12pt;
-        line-height: 1.5;
-    }
-    
-    .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 20px !important;
-    }
-    
-    section {
-        padding: 30px 0 !important;
-        page-break-inside: avoid;
-    }
-    
-    .hero {
-        min-height: auto !important;
-        padding: 40px 0 !important;
-    }
-    
-    .hero-container {
-        display: block !important;
-    }
-    
-    .hero-left {
-        text-align: left !important;
-        align-items: flex-start !important;
-    }
-    
-    .hero-right {
-        display: none !important;
-    }
-    
-    .photo-card {
-        box-shadow: none !important;
-        border: 1px solid #cccccc !important;
-        background: #f5f5f5 !important;
-    }
-    
-    .glass {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background: #f5f5f5 !important;
-        border: 1px solid #cccccc !important;
-    }
-    
-    .primary-btn,
-    .secondary-btn {
-        border: 1px solid #000000 !important;
-        background: #ffffff !important;
-        color: #000000 !important;
-        box-shadow: none !important;
-        padding: 10px 20px !important;
-    }
-    
-    .primary-btn:hover,
-    .secondary-btn:hover {
-        transform: none !important;
-        box-shadow: none !important;
-    }
-    
-    .skill-tags span,
-    .project-tech span,
-    .mini-tech span {
-        border: 1px solid #cccccc !important;
-        background: #f5f5f5 !important;
-        color: #000000 !important;
-        padding: 6px 14px !important;
-    }
-    
-    .service-card,
-    .project-card,
-    .highlight-card,
-    .detail-box,
-    .contact-card,
-    .certificate-card,
-    .achievement-card,
-    .stat-box,
-    .timeline-content {
-        box-shadow: none !important;
-        border: 1px solid #cccccc !important;
-        background: #fafafa !important;
-        padding: 20px !important;
-    }
-    
-    footer {
-        background: #f5f5f5 !important;
-        border-top: 1px solid #cccccc !important;
-        margin-top: 30px !important;
-        padding: 30px 0 20px !important;
-    }
-    
-    .footer-bottom {
-        border-top: 1px solid #cccccc !important;
-    }
-    
-    .footer-links a::after {
-        display: none !important;
-    }
-    
-    h1, h2, h3, h4 {
-        color: #000000 !important;
-    }
-    
-    p {
-        color: #333333 !important;
-    }
-    
-    .section-header span {
-        color: #000000 !important;
-    }
-    
-    .stat-box h2 {
-        color: #000000 !important;
-        font-size: 2.5rem !important;
-    }
-    
-    .logo span {
-        color: #000000 !important;
-    }
-    
-    .project-label {
-        background: #f5f5f5 !important;
-        color: #000000 !important;
-        border: 1px solid #cccccc !important;
-    }
-    
-    .timeline-year {
-        background: #f5f5f5 !important;
-        color: #000000 !important;
-        border: 1px solid #cccccc !important;
-    }
-    
-    .service-number {
-        color: rgba(0, 0, 0, 0.1) !important;
-    }
-    
-    .hero::before,
-    .hero::after,
-    .contact::before,
-    .contact::after {
-        display: none !important;
-    }
-    
-    .about-image {
-        width: 200px !important;
-        height: 250px !important;
-    }
-    
-    .about-image:hover img {
-        transform: none !important;
-    }
-    
-    .project-image:hover img {
-        transform: none !important;
-    }
-    
-    .project-card:hover img {
-        transform: none !important;
-    }
-    
-    .service-card:hover,
-    .skill-category:hover,
-    .highlight-card:hover,
-    .detail-box:hover,
-    .contact-card:hover,
-    .certificate-card:hover,
-    .achievement-card:hover,
-    .stat-box:hover,
-    .project-card:hover,
-    .timeline-content:hover {
-        transform: none !important;
-    }
-    
-    .nav-menu a::after {
-        display: none !important;
-    }
-    
-    .nav-menu a.active::after {
-        display: block !important;
-    }
-    
-    .timeline::before {
-        left: 20px !important;
-    }
-    
-    .timeline-dot {
-        width: 12px !important;
-        height: 12px !important;
-        min-width: 12px !important;
-        background: #000000 !important;
-        box-shadow: none !important;
-    }
-    
-    .contact-right form {
-        max-width: 100% !important;
-    }
-    
-    .input-group input,
-    .input-group textarea {
-        border: 1px solid #cccccc !important;
-        background: #fafafa !important;
-        color: #000000 !important;
-    }
-    
-    .input-group input:focus,
-    .input-group textarea:focus {
-        box-shadow: none !important;
-        border-color: #000000 !important;
-    }
-    
-    .scroll-down {
-        display: none !important;
-    }
-}
-
 /* =========================================
-   FINAL MOBILE FIX - CARDS VERTICAL
+   FINAL MOBILE FIXES (single source of truth)
+   Consolidates card-grid, button and project-link
+   behaviour for phones. Placed last so it wins the
+   cascade without needing to fight earlier rules.
    ========================================= */
 
-/* 1. Skills, Services, Projects, Highlights - Mobile par vertical */
 @media (max-width: 768px) {
+
+  /* 1. Force every card grid into one column on phones */
   .skills-grid,
   .services-grid,
   .projects-grid,
@@ -4217,11 +3869,10 @@ textarea:focus-visible {
   .certificate-grid,
   .achievement-grid,
   .stats-grid {
-    grid-template-columns: 1fr !important; /* Ek column mein sab */
-    gap: 1.5rem !important; /* Bech mein gap */
+    grid-template-columns: 1fr !important;
+    gap: clamp(16px, 4vw, 24px) !important;
   }
 
-  /* Har card ki width 100% */
   .skill-category,
   .service-card,
   .project-card,
@@ -4232,53 +3883,45 @@ textarea:focus-visible {
     width: 100% !important;
     max-width: 100% !important;
   }
-}
 
-/* 2. Hero buttons ko vertical nahi, horizontal rakhein (optional) */
-@media (max-width: 576px) {
+  /* 2. Hero buttons: full width and easy to tap, never shrink */
   .hero-buttons {
     flex-direction: column !important;
     width: 100% !important;
+    gap: 12px !important;
   }
 
   .primary-btn,
   .secondary-btn {
     width: 100% !important;
+    min-height: 50px !important;
+    font-size: 1rem !important;
     justify-content: center !important;
+    white-space: normal !important;
+  }
+
+  /* 3. Project links: two per row, readable, never clipped */
+  .project-links,
+  .project-card .project-links {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .project-links a,
+  .project-card .project-links a {
+    flex: 1 1 45% !important;
+    min-width: 130px !important;
+    justify-content: center !important;
+    text-align: center !important;
     white-space: normal !important;
   }
 }
 
-/* 3. Project links ko mobile mein vertical na karein (optional) */
-@media (max-width: 480px) {
-  .project-links {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
+@media (max-width: 420px) {
+  /* On very narrow phones, stack project links fully so text never clips */
+  .project-links a,
+  .project-card .project-links a {
+    flex: 1 1 100% !important;
   }
-
-  .project-links a {
-    flex: 1 1 auto !important;
-    min-width: 80px !important;
-    justify-content: center !important;
-  }
-}
-
-/* =========================================
-   SECTION BACKGROUND FIX - MOBILE BLACK PATCH
-   ========================================= */
-
-.skills,
-.projects,
-.education,
-.certificates,
-.achievements {
-  background: var(--bg-color, #070707) !important;
-}
-
-body.light .skills,
-body.light .projects,
-body.light .education,
-body.light .certificates,
-body.light .achievements {
-  background: var(--bg-color, #f7f7f7) !important;
 }

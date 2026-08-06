@@ -1946,7 +1946,7 @@ const Responsive = {
 
 const Performance = {
     init: () => {
-        if (process.env.NODE_ENV === "development") {
+        if (typeof process !== "undefined" && process.env && process.env.NODE_ENV === "development") {
             Performance.monitorFPS();
         }
     },
@@ -2071,29 +2071,31 @@ emailjs.init({
 
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    const btn = contactForm.querySelector("button[type='submit']");
-    btn.disabled = true;
-    btn.innerText = "Sending...";
+        const btn = contactForm.querySelector("button[type='submit']");
+        btn.disabled = true;
+        btn.innerText = "Sending...";
 
-    emailjs.send("service_l4vcs2y", "template_bc8abf8", {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-    })
-    .then(() => {
-        alert("✅ Message sent successfully!");
-        contactForm.reset();
-    })
-    .catch((error) => {
-        console.error(error);
-        alert("❌ Failed to send message. Please try again.");
-    })
-    .finally(() => {
-        btn.disabled = false;
-        btn.innerText = "Send Message";
+        emailjs.send("service_l4vcs2y", "template_bc8abf8", {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value
+        })
+        .then(() => {
+            alert("✅ Message sent successfully!");
+            contactForm.reset();
+        })
+        .catch((error) => {
+            console.error(error);
+            alert("❌ Failed to send message. Please try again.");
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.innerText = "Send Message";
+        });
     });
-});
+}
