@@ -3925,3 +3925,31 @@ textarea:focus-visible {
     flex: 1 1 100% !important;
   }
 }
+
+
+/* =========================================
+   FIX: Mobile First Load Visibility
+   ========================================= */
+
+/* Mobile par sab sections ko turant visible karein */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Har card type ko visible karein */
+  .skill-category,
+  .service-card,
+  .project-card,
+  .highlight-card,
+  .certificate-card,
+  .achievement-card,
+  .stat-box,
+  .timeline-content,
+  .about-wrapper,
+  .hero-container {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}

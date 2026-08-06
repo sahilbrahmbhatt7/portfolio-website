@@ -2099,3 +2099,27 @@ if (contactForm) {
         });
     });
 }
+
+
+
+// =========================================
+// ✅ MOBILE FIX - Pehli baar mein sab dikhe
+// =========================================
+
+(function() {
+    // Mobile pe turant render karne ke liye
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            el.classList.add('active');
+        });
+    }
+
+    // ScrollTrigger refresh after load
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+            }
+        }, 300);
+    });
+})();
