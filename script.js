@@ -2123,3 +2123,26 @@ if (contactForm) {
         }, 300);
     });
 })();
+
+
+// =========================================
+// ✅ MOBILE FIX - Hero Image Force Show
+// =========================================
+
+(function() {
+    if (window.innerWidth <= 768) {
+        // Hero image force visible
+        var photoCard = document.querySelector('.photo-card');
+        if (photoCard) {
+            photoCard.style.opacity = '1';
+            photoCard.style.transform = 'translateY(0)';
+            photoCard.style.visibility = 'visible';
+        }
+        
+        var photoImg = document.querySelector('.photo-card img');
+        if (photoImg) {
+            photoImg.style.opacity = '1';
+            photoImg.style.display = 'block';
+        }
+    }
+})();

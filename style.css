@@ -3953,3 +3953,23 @@ textarea:focus-visible {
     transform: translateY(0) !important;
   }
 }
+
+/* =========================================
+   FIX: Hero Image Mobile Visible
+   ========================================= */
+
+@media (max-width: 768px) {
+    .photo-card {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    
+    .photo-card img {
+        opacity: 1 !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
