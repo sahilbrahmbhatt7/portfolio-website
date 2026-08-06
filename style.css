@@ -3973,3 +3973,56 @@ textarea:focus-visible {
         height: auto !important;
     }
 }
+
+/* =========================================
+   FIX: Desktop Site Mode on Mobile
+   ========================================= */
+
+/* Jab mobile pe Desktop Site mode on ho */
+@media (max-width: 1024px) {
+    /* Hero section */
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .hero-left {
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .hero-right {
+        order: -1 !important;
+    }
+    
+    .photo-card {
+        width: 300px !important;
+        height: 380px !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Cards grid - 2 columns max */
+    .skills-grid,
+    .services-grid,
+    .projects-grid,
+    .highlight-grid,
+    .certificate-grid,
+    .achievement-grid,
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+    }
+    
+    p {
+        font-size: 1rem !important;
+    }
+}
