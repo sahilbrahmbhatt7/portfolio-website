@@ -4203,3 +4203,62 @@ textarea:focus-visible {
         display: none !important;
     }
 }
+
+/* =========================================
+   FINAL MOBILE FIX - CARDS VERTICAL
+   ========================================= */
+
+/* 1. Skills, Services, Projects, Highlights - Mobile par vertical */
+@media (max-width: 768px) {
+  .skills-grid,
+  .services-grid,
+  .projects-grid,
+  .highlight-grid,
+  .certificate-grid,
+  .achievement-grid,
+  .stats-grid {
+    grid-template-columns: 1fr !important; /* Ek column mein sab */
+    gap: 1.5rem !important; /* Bech mein gap */
+  }
+
+  /* Har card ki width 100% */
+  .skill-category,
+  .service-card,
+  .project-card,
+  .highlight-card,
+  .certificate-card,
+  .achievement-card,
+  .stat-box {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 2. Hero buttons ko vertical nahi, horizontal rakhein (optional) */
+@media (max-width: 576px) {
+  .hero-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    white-space: normal !important;
+  }
+}
+
+/* 3. Project links ko mobile mein vertical na karein (optional) */
+@media (max-width: 480px) {
+  .project-links {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+
+  .project-links a {
+    flex: 1 1 auto !important;
+    min-width: 80px !important;
+    justify-content: center !important;
+  }
+}
