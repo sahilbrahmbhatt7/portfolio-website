@@ -4262,3 +4262,23 @@ textarea:focus-visible {
     justify-content: center !important;
   }
 }
+
+/* =========================================
+   SECTION BACKGROUND FIX - MOBILE BLACK PATCH
+   ========================================= */
+
+.skills,
+.projects,
+.education,
+.certificates,
+.achievements {
+  background: var(--bg-color, #070707) !important;
+}
+
+body.light .skills,
+body.light .projects,
+body.light .education,
+body.light .certificates,
+body.light .achievements {
+  background: var(--bg-color, #f7f7f7) !important;
+}
